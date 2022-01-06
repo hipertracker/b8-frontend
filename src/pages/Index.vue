@@ -1,22 +1,25 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page class='row items-center justify-evenly'>
     <example-component
-      title="Example component"
+      :meta='meta'
+      :todos='todos'
       active
-      :todos="todos"
-      :meta="meta"
+      title='Example component'
     ></example-component>
+    <hr />
+    <Languages />
   </q-page>
 </template>
 
-<script lang="ts">
-import { Todo, Meta } from 'components/models';
+<script lang='ts'>
+import { Meta, Todo } from 'components/models';
 import ExampleComponent from 'components/CompositionComponent.vue';
+import Languages from 'components/Languages.vue';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'PageIndex',
-  components: { ExampleComponent },
+  components: { ExampleComponent, Languages },
   setup() {
     const todos = ref<Todo[]>([
       {
